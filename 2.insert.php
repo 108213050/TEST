@@ -17,9 +17,11 @@ $msg=$_POST['msg'];
 $name=$_POST['myname'];
 
 if ($title) {
+	// 指令
 	$sql = "insert into guestbook (title, msg, name) values (?, ?, ?)";
 	$stmt = mysqli_prepare($db, $sql); //prepare sql statement
 	mysqli_stmt_bind_param($stmt, "sss", $title, $msg,$name); //bind parameters with variables
+	// "?"對上綁定的型態 sss s:string
 	mysqli_stmt_execute($stmt);  //執行SQL
 	echo "message added.";
 } else {
@@ -27,6 +29,7 @@ if ($title) {
 }
 ?>
 <hr>
+<!-- 連回首頁 -->
 <a href="1.listUI.php">Home</a>
 
 </body>

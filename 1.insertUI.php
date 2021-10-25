@@ -14,7 +14,9 @@
     <td>message</td>
     <td>name</td>
   </tr>
+  <!-- 用POST打包送給2.insert.php -->
   <tr><form method="post" action="2.insert.php">
+    <!-- NAME的命名會連結到PHP程式執行辨認 -->
     <td><label>
       <input name="title" type="text" id="title" />
     </label></td>

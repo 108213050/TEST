@@ -29,7 +29,7 @@ while (	$rs = mysqli_fetch_assoc($result)) {
 	echo "<tr><td>" , $rs['id'] ,
 	"</td><td>" , $rs['title'],
 	"</td><td>" , $rs['msg'], 
-	"<td>", $rs['name'], "</td>",
+	"</td><td>", $rs['name'], "</td>",
 	"<td><a href='2.delete.php?id=", $rs['id'], "'>Delete</a> ",
 	"<a href='1.editUI.php?id=", $rs['id'], "'>Edit</a></td></tr>";
 }

@@ -23,6 +23,7 @@ if(isset($_GET['id'])) {
 } else {
 	$id=0;
 }
+// 防呆
 if ($id <=0) {
 	echo "empty ID";
 	exit(0);
@@ -31,9 +32,11 @@ if ($id <=0) {
 	$stmt = mysqli_prepare($db, $sql );
 	mysqli_stmt_bind_param($stmt, "i", $id);
 	mysqli_stmt_execute($stmt);
+  // select會取到值 
 	$result = mysqli_stmt_get_result($stmt); 
 if ($rs=mysqli_fetch_array($result)) {
 ?>
+<!-- post打包交給2.update.php處理 -->
 <form method="post" action="2.update.php">
   <tr>
     <td><label>
@@ -41,6 +44,7 @@ if ($rs=mysqli_fetch_array($result)) {
 	  <?php echo $rs['id']; ?>
     </label></td>
     <td><label>
+      <!-- htmlspecialchars -->
       <input name="title" type="text" id="title" value="<?php echo htmlspecialchars($rs['title']); ?>"/>
     </label></td>
     <td><label>

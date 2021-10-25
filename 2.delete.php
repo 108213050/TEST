@@ -11,6 +11,7 @@
 <hr />
 <?php
 require("dbconfig.php");
+// 放在網址後的參數都要用get取
 if(isset($_GET['id'])) {
 	$id=(int)$_GET['id'];
 } else {
