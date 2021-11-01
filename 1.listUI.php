@@ -15,6 +15,7 @@
     <td>title</td>
     <td>message</td>
     <td>name</td>
+    <td>讚</td>
 	<td>-</td>
   </tr>
 <?php
@@ -30,7 +31,9 @@ while (	$rs = mysqli_fetch_assoc($result)) {
 	"</td><td>" , $rs['title'],
 	"</td><td>" , $rs['msg'], 
 	"</td><td>", $rs['name'], "</td>",
-	"<td><a href='2.delete.php?id=", $rs['id'], "'>Delete</a> ",
+	"</td><td>", $rs['like'], "</td>",
+	"<td><a href='2.like.php?id=", $rs['id'], "'>Like</a> ",
+	"<a href='2.delete.php?id=", $rs['id'], "'>Delete</a> ",
 	"<a href='1.editUI.php?id=", $rs['id'], "'>Edit</a></td></tr>";
 }
 ?>
