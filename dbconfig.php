@@ -12,11 +12,19 @@ $db = mysqli_connect($host, $user, $pass, $dbName) or die('Error with MySQL conn
 
 mysqli_query($db,"SET NAMES utf8"); //設定編碼為 unicode utf8
 
-function checkAccess() {
-	if (isset($_SESSION['userID']) and $_SESSION['userID']>'') {
+function checkAccessRole($reqRole) {
+	if (isset($_SESSION['role']) and $_SESSION['role'] == $reqRole) {
 		return true;
 	} else {
 		return false;
+	}
+}
+
+function checkAccess($reqLevel) {
+	if (isset($_SESSION['role']) and $_SESSION['role'] >= $reqLevel) {
+		return True;
+	} else {
+		return False;
 	}
 }
 ?>
