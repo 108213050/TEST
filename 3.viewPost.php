@@ -33,7 +33,7 @@ if(isset($_GET['id'])) {
 	<td>-</td>
   </tr>
 <?php
-require("dbconfig.php");
+
 $sql = "select * from guestbook where id=?;";
 $stmt = mysqli_prepare($db, $sql );
 mysqli_stmt_bind_param($stmt, "i", $id);

@@ -1,3 +1,11 @@
+<?php
+require("dbconfig.php");
+if ( ! checkAccess()) {
+	header("Location: 0.loginUI.php");
+}
+?>
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -7,7 +15,7 @@
 
 <body>
 
-<p>my guest book !!   	<a href='1.insertUI.php'>Add</a></p>
+<p><?php echo "hello ! 使用者: ",$_SESSION['userID'];?>   	<a href='1.insertUI.php'>Add</a></p>
 <hr />
 <table width="200" border="1">
   <tr>
@@ -21,7 +29,7 @@
 	<td>-</td>
   </tr>
 <?php
-require("dbconfig.php");
+
 $sql = "select * from guestbook order by id desc;";
 $stmt = mysqli_prepare($db, $sql );
 mysqli_stmt_execute($stmt);
