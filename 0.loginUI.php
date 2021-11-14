@@ -5,6 +5,7 @@
 
 ?>
 <hr>
+
 <form method="post" action="0.login.php">
 ID<input type="text" name="id"></br>
 Password <input type="text" name="pwd">

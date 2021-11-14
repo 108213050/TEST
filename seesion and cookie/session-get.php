@@ -1,7 +1,7 @@
 <?php
-	//Session ¨Ï¥Î½d¨Ò
-	session_start(); //±Ò¥Îsession ¥\¯à, ¥²¶·¦bphpµ{¦¡ÁÙ¨S¿é¥X¥ô¦ó°T®§¤§«e±Ò¥Î
-	//$_SESSION["varName"] = "session ok"; //«Å§isession ÅÜ¼Æ¨Ã«ü©w­È
+	//Session ä½¿ç”¨ç¯„ä¾‹
+	session_start(); //å•Ÿç”¨session åŠŸèƒ½, å¿…é ˆåœ¨phpç¨‹å¼é‚„æ²’è¼¸å‡ºä»»ä½•è¨Šæ¯ä¹‹å‰å•Ÿç”¨
+	//$_SESSION["varName"] = "session ok"; //å®£å‘Šsession è®Šæ•¸ä¸¦æŒ‡å®šå€¼
 
 	if ( isset($_SESSION["keyValue"])) {
 		echo "Session['keyValue']=" . $_SESSION["keyValue"] . "<br>";
@@ -16,12 +16,12 @@
 	}
 
 /*
-	$a = $_SESSION["keyValue"]; //¨ú±osession ÅÜ¼Æ keyValue ªº­È
-	unset($_SESSION['ÅÜ¼Æ¦WºÙ']); //¨ú®øsession ÅÜ¼Æªº«Å§i
+	$a = $_SESSION["keyValue"]; //å–å¾—session è®Šæ•¸ keyValue çš„å€¼
+	unset($_SESSION['è®Šæ•¸åç¨±']); //å–æ¶ˆsession è®Šæ•¸çš„å®£å‘Š
 
-	//cookie¨Ï¥Î½d¨Ò
-	setcookie("cookieName", "cookieValue", time()+36000); // ³]©wcookie­È»P¦³®Ä®É¶¡
-	$b= $_COOKIE["cookieName"]; //¨ú±ocookieªº­È
+	//cookieä½¿ç”¨ç¯„ä¾‹
+	setcookie("cookieName", "cookieValue", time()+36000); // è¨­å®šcookieå€¼èˆ‡æœ‰æ•ˆæ™‚é–“
+	$b= $_COOKIE["cookieName"]; //å–å¾—cookieçš„å€¼
 	echo $a, $b;
 
 */

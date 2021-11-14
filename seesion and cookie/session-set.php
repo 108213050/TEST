@@ -1,6 +1,6 @@
 <?php
 	// http head
-	session_start(); //±Ò¥Îsession ¥\¯à, ¥²¶·¦bphpµ{¦¡ÁÙ¨S¿é¥X¥ô¦ó°T®§¤§«e±Ò¥Î
+	session_start(); //å•Ÿç”¨session åŠŸèƒ½, å¿…é ˆåœ¨phpç¨‹å¼é‚„æ²’è¼¸å‡ºä»»ä½•è¨Šæ¯ä¹‹å‰å•Ÿç”¨
 	//
 	$val = $_POST["keyValue"];
 	if ($val == ''){
@@ -11,10 +11,10 @@
 	
 	
 	
-	//§A¥²¶·¦bSession µ{¦¡¶}ÀY©ñ¤J session_start()
-	$_SESSION["keyValue"] = $val; //«Å§isession ÅÜ¼Æ¨Ã«ü©w­È
-	setcookie("keyValue", $val, time()+36000); // ³]©wcookie­È»P¦³®Ä®É¶¡
-	// time()+3600: ±q²{¦b¶}©l«áªº3600
+	//ä½ å¿…é ˆåœ¨Session ç¨‹å¼é–‹é ­æ”¾å…¥ session_start()
+	$_SESSION["keyValue"] = $val; //å®£å‘Šsession è®Šæ•¸ä¸¦æŒ‡å®šå€¼
+	setcookie("keyValue", $val, time()+36000); // è¨­å®šcookieå€¼èˆ‡æœ‰æ•ˆæ™‚é–“
+	// time()+3600: å¾žç¾åœ¨é–‹å§‹å¾Œçš„3600
 ?>
 ok!!
 <a href="session-get.php">get session value</a>

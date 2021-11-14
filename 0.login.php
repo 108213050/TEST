@@ -2,10 +2,8 @@
 require("dbconfig.php");
 	// http head
 	// session_start(); //啟用session 功能, 必須在php程式還沒輸出任何訊息之前啟用
-	//
 	$loginID = $_POST["id"];
 	$password = $_POST["pwd"];
-	
 	
 	
 	$sql = "select loginID,role,level from user where password=PASSWORD(?);";
