@@ -56,6 +56,8 @@ while (	$rs = mysqli_fetch_assoc($result)) {
 }
 ?>
 </table>
+<h2>回覆</h2>
+<table width="200" border="1">
 <?php
 // 根據文章id找出回覆的訊息
 // fetch respons this post
@@ -65,10 +67,18 @@ mysqli_stmt_bind_param($stmt, "i", $id);
 mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt); 
 // 把每一個回覆訊息印出來
+
 while (	$rs = mysqli_fetch_assoc($result)) {
-	echo "<p>",$rs['msg'],"</p>";
+	echo "<tr><td>",
+		$rs['id'],
+		"</td><td>"
+		,$rs['msg'],
+		"<td><a href='3.delete.php?id=", $rs['id'],"&mid=",$rs['mid'],"'>Delete</a>",
+		"</td></tr>";
 }
+
 ?>
+</table>
 <form method="post" action="3.response.php">
     <!-- NAME的命名會連結到PHP程式執行辨認 -->
     <td>
