@@ -1,7 +1,14 @@
 <?php
 require_once("dbconfig.php");
 function addJob($title,$note){
-    return false;
+    global $db;
+    // 指令
+	$sql = "insert into todo (title, note) values (?, ?)";
+	$stmt = mysqli_prepare($db, $sql); //prepare sql statement
+	mysqli_stmt_bind_param($stmt, "ss", $title, $note); //bind parameters with variables
+	// "?"對上綁定的型態 sss s:string
+	mysqli_stmt_execute($stmt);  //執行SQL
+    return true;
 }
 function getJobList(){
     global $db;
@@ -35,6 +42,12 @@ function getJobList(){
     return $retArr;
 }
 function setFinished($id){
+    global $db;
+    $sql = "update todo set finish=now() where id=?";
+	$stmt = mysqli_prepare($db, $sql);
+	mysqli_stmt_bind_param($stmt, "i", $id);
+	mysqli_stmt_execute($stmt); //執行SQL
+	echo "message updated";
     return false;
 }
 ?>
