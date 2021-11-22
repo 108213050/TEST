@@ -40,7 +40,7 @@ if ( ! (checkAccess(1))) {
   </tr>
 <?php
 
-$sql = "select * from guestbook order by id desc;";
+$sql = "select * from guestbook where type= \"閒聊\" ;";
 $stmt = mysqli_prepare($db, $sql );
 mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt); 
@@ -74,10 +74,10 @@ while (	$rs = mysqli_fetch_assoc($result)) {
 		// "<td><a href='2.like.php?id=", $rs['id'], "&t=1'>Like</a> ",
 		// "<a href='2.like.php?id=", $rs['id'], "&t=-1'>Dislike</a> ";
 		if(checknum($rs['likes'])){
-			echo "<td><a href='2.like.php?id=", $rs['id'], "&t=1'>Like</a> ";
+			echo "<td><a href='2.like.php?id=", $rs['id'], "&t=1&type=",$rs['type'],"'>Like</a> ";
 		}else{
 			echo "<td>",
-			"<a href='2.like.php?id=", $rs['id'], "&t=-1'>取消按讚</a>";
+			"<a href='2.like.php?id=", $rs['id'], "&t=-1&type=",$rs['type'],"'>取消按讚</a>";
 		}
 		if(checkAccess(5)){
 			echo "<a href='2.delete.php?id=", $rs['id'], "'>Delete</a> ",	
@@ -92,10 +92,10 @@ while (	$rs = mysqli_fetch_assoc($result)) {
 		"</td><td>", $rs['likes'], "</td>",
 		"</td><td>", $rs['type'], "</td>";
 		if(checknum($rs['likes'])){
-			echo "<td><a href='2.like.php?id=", $rs['id'], "&t=1'>Like</a> ";
+			echo "<td><a href='2.like.php?id=", $rs['id'], "&t=1","&type=",$rs['type'],"'>Like</a> ";
 		}else{
 			echo "<td>",
-			"<a href='2.like.php?id=", $rs['id'], "&t=-1'>取消按讚</a>";
+			"<a href='2.like.php?id=", $rs['id'], "&t=-1&type=",$rs['type'],"'>取消按讚</a>";
 		}
 		// "<td><a href='2.like.php?id=", $rs['id'], "&t=1'>Like</a> ",
 		// echo "<a href='2.like.php?id=", $rs['id'], "&t=-1'>Dislike</a> ";
@@ -114,10 +114,10 @@ while (	$rs = mysqli_fetch_assoc($result)) {
 		// "<td><a href='2.like.php?id=", $rs['id'], "&t=1'>Like</a> ",
 		// "<a href='2.like.php?id=", $rs['id'], "&t=-1'>Dislike</a> ";
 		if(checknum($rs['likes'])){
-			echo "<td><a href='2.like.php?id=", $rs['id'], "&t=1'>Like</a> ";
+			echo "<td><a href='2.like.php?id=", $rs['id'], "&t=1&type=",$rs['type'],"'>Like</a> ";
 		}else{
 			echo "<td>",
-			"<a href='2.like.php?id=", $rs['id'], "&t=-1'>取消按讚</a>";
+			"<a href='2.like.php?id=", $rs['id'], "&t=-1&type=",$rs['type'],"'>取消按讚</a>";
 		}
 		if(checkAccess(5)){
 			echo "<a href='2.delete.php?id=", $rs['id'], "'>Delete</a> ",	
@@ -129,10 +129,8 @@ while (	$rs = mysqli_fetch_assoc($result)) {
 	
 }
 
-
-
-
 ?>
+
 </table>
 </body>
 </html>

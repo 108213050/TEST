@@ -67,14 +67,40 @@ mysqli_stmt_bind_param($stmt, "i", $id);
 mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt); 
 // 把每一個回覆訊息印出來
-
+//計算回覆數量
+$count = 0 ;
 while (	$rs = mysqli_fetch_assoc($result)) {
-	echo "<tr><td>",
+	$count +=1;
+}
+$sql = "select * from `response` where mid=? order by id;";
+$stmt = mysqli_prepare($db, $sql );
+mysqli_stmt_bind_param($stmt, "i", $id);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt); 
+while (	$rs = mysqli_fetch_assoc($result)) {
+	if($count<=5){
+		echo "<tr><td>",
 		$rs['id'],
 		"</td><td>"
 		,$rs['msg'],
-		"<td><a href='3.delete.php?id=", $rs['id'],"&mid=",$rs['mid'],"'>Delete</a>",
+		
 		"</td></tr>";
+	}elseif($count>5&&$count <=10){
+		echo "<tr style = \" color:blue \"><td>",
+		$rs['id'],
+		"</td><td>"
+		,$rs['msg'],
+		
+		"</td></tr>";
+	}else{
+		echo "<tr style = \" color:red \"><td>",
+		$rs['id'],
+		"</td><td>"
+		,$rs['msg'],
+		
+		"</td></tr>";
+	}
+	
 }
 
 ?>

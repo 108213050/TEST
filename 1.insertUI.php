@@ -13,6 +13,7 @@
     <td>title</td>
     <td>message</td>
     <td>name</td>
+    <td>留言種類</td>
   </tr>
   <!-- 用POST打包送給2.insert.php -->
   <tr><form method="post" action="2.insert.php">
@@ -25,8 +26,17 @@
     </label></td>
     <td><label>
       <input name="myname" type="text" id="myname" />
-      <input type="submit" name="Submit" value="送出" />
+      
     </label></td>
+    <td>
+      <select name="type" size="1">
+        <option>請選擇留言種類</option>
+        <option value="閒聊">閒聊</option>
+        <option value="心情">心情</option>
+        <option value="八卦">八卦</option>
+      </select>
+    </td>
+    <td><input type="submit" name="Submit" value="送出" /></td>
 	</form>
   </tr>
 </table>

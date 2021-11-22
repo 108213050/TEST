@@ -15,12 +15,14 @@ require('dbconfig.php');
 $title=$_POST['title'];
 $msg=$_POST['msg'];
 $name=$_POST['myname'];
+$type=$_POST['type'];
+echo $type;
 
 if ($title) {
 	// 指令
-	$sql = "insert into guestbook (title, msg, name) values (?, ?, ?)";
+	$sql = "insert into guestbook (title, msg, name,type) values (?, ?, ?,?)";
 	$stmt = mysqli_prepare($db, $sql); //prepare sql statement
-	mysqli_stmt_bind_param($stmt, "sss", $title, $msg,$name); //bind parameters with variables
+	mysqli_stmt_bind_param($stmt, "ssss", $title, $msg,$name,$type); //bind parameters with variables
 	// "?"對上綁定的型態 sss s:string
 	mysqli_stmt_execute($stmt);  //執行SQL
 	echo "message added.";

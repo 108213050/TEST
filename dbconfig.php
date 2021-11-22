@@ -27,4 +27,15 @@ function checkAccess($reqLevel) {
 		return False;
 	}
 }
+// 檢查冠票數
+function checknum($num){
+	// 如果沒有投過票
+	if(isset($_SESSION['role']) and $num<1){
+		return True;
+	} else {
+		// 如果有投過票
+		return False;
+	}
+
+}
 ?>

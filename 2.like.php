@@ -18,6 +18,7 @@ if(isset($_GET['id'])) {
 	$id=0;
 }
 $t = (int)$_GET['t'];
+$type = $_GET['type'];
 
 if ($id>0) {
 	if($t == 1 ){
@@ -34,8 +35,17 @@ if ($id>0) {
 	mysqli_stmt_bind_param($stmt, "i", $id);
 	mysqli_stmt_execute($stmt);
 
-	// echo "liked";
-	header("Location: 1.listUI.php");
+	if($type == "閒聊"){
+		header("Location: 0.talk.php");
+	}elseif($type == "心情"){
+		header("Location: 0.mood.php");
+	}elseif($type == "八卦"){
+		header("Location: 0.gossip.php");
+	}
+	else{
+		header("Location: 1.listUI.php");
+	}
+	
 } else {
 	echo "empty id, cannot like.";
 }
