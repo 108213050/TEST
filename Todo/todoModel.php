@@ -10,7 +10,9 @@ function addJob($title,$note){
 	mysqli_stmt_execute($stmt);  //執行SQL
     return true;
 }
-function getJobList(){
+//$type預設為0
+//
+function getJobList($type=0){
     global $db;
     //$db其實是在函數外定義的
     //在function裡要宣告這個變數是在外面定義的
@@ -24,11 +26,23 @@ function getJobList(){
 	$aa[]=$a;
 	return  $aa;
 	*/
+    //工作是否完成過濾
+    if($type == 1){
+        //已完成
+        $sql = "select * from todo where not isnull(finish) order by id desc;";
+    }else if($type == 2 ){
+        //未完成
+        $sql = "select * from todo where isnull(finish) order by id desc;";
+    }else{
+        //全部列出來
+        $sql = "select * from todo order by id desc;";
+    }
     $a = array();
-    $sql = "select * from todo order by id desc;";
-    $stmt = mysqli_prepare($db, $sql );
+    
+    $stmt = mysqli_prepare($db, $sql);
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt); 
+    
     $retArr = array();
     while (	$rs = mysqli_fetch_assoc($result)) {
         $tArr = array();

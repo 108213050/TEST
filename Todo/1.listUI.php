@@ -16,7 +16,9 @@ require("todoModel.php");
 <body>
 
 <p><a href='1.insertUI.php'>Add</a></p>
-
+<a href='1.listUI.php'>List all</a>
+<a href='1.listUI.php?t=1'>List Finished</a>
+<a href='1.listUI.php?t=2'>List UnFnished</a>
 <hr/>
 
 
@@ -30,8 +32,13 @@ require("todoModel.php");
     <td>-</td>
   </tr>
 <?php
+if (isset($_GET['t'])){
+  $t = (int)$_GET['t'];
+}else{
+  $t = 0;
+}
 //不仔隊db呼叫直接去取得function
-$result = getJobList();
+$result = getJobList($t);
 foreach ($result as $job){
 	echo "<tr><td>" , $job['id'] ,
 	"</td><td>", $job['title'],
