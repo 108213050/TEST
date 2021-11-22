@@ -27,5 +27,3 @@ switch($act){
 
 ?>
 
-</body>
-</html>
